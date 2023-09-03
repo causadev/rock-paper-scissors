@@ -6,9 +6,7 @@ const result1 = document.querySelector("#result1");
 const result2 = document.querySelector("#result2");
 const result3 = document.querySelector("#result3");
 const restartBtn = document.querySelector("#restartBtn");
-setTimeout(() => {
-  let userInput = prompt("Enter your username:").toLowerCase();
-}, 100);
+let userInput = setTimeout(() => prompt("Enter your username:"), 200)
 let playerWins = 0;
 let playerScore = 0;
 let computerScore = 0;
@@ -72,5 +70,5 @@ restartBtn.addEventListener("click", () => {
   result3.textContent = "";
   setTimeout(() => {
     userInput = prompt("Enter your username:").toLowerCase();
-  }, 100);
+  }, 200);
 });
