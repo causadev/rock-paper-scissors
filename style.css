@@ -12,7 +12,7 @@ h1 {
 #paperBtn {
   margin: 10px;
   padding: 10px;
-  border: 2px solid gray;
+  border: 2px solid #333;
   font-size: 18px;
   border-radius: 7px;
 }
@@ -20,7 +20,7 @@ h1 {
 #scissorsBtn {
   margin: 10px;
   padding: 10px;
-  border: 2px solid #f8504b;
+  border: 2px solid #333;
   font-size: 16px;
   border-radius: 7px;
 }
