@@ -61,7 +61,13 @@ function updateScore() {
 }
 
 function displayFinalScores() {
-  result3.textContent = `Game Over! Final Scores - ${userInput}: ${playerScore}, computer: ${computerScore}`;
+  if (playerScore > computerScore) {
+    result3.textContent = `Game Over! Final Scores - ${userInput}: ${playerScore}, computer: ${computerScore} ${userInput} Wins!`;
+  } else if (playerScore === computerScore) {
+    result3.textContent = `Game Over! Final Scores - ${userInput}: ${playerScore}, computer: ${computerScore} ${userInput} Draw!`;
+  } else {
+    result3.textContent = `Game Over! Final Scores - ${userInput}: ${playerScore}, computer: ${computerScore} ${userInput} Lost!`;
+  }
 }
 
 restartBtn.addEventListener("click", () => {
