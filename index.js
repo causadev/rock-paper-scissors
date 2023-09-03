@@ -28,7 +28,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection) {
-  if (round <= rounds) {
+  if (round < rounds) {
     const computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
       result.textContent = `It's a draw! ${playerSelection} can't beat ${computerSelection}`;
@@ -47,7 +47,7 @@ function playRound(playerSelection) {
     round++;
     updateScore();
 
-    if (round > rounds) {
+    if (round >= rounds) {
       displayFinalScores();
     }
   }
@@ -61,7 +61,7 @@ function updateScore() {
 }
 
 function displayFinalScores() {
-  if (playerScore > computerScore) {
+  if (playerScore >= computerScore) {
     result3.textContent = `Game Over! Final Scores - ${userInput}: ${playerScore}, computer: ${computerScore} ${userInput} Wins!`;
   } else if (playerScore === computerScore) {
     result3.textContent = `Game Over! Final Scores - ${userInput}: ${playerScore}, computer: ${computerScore} ${userInput} Draw!`;
