@@ -56,7 +56,7 @@ function restartGame() {
   userChoice.textContent = `you chose: `;
   playerScoreDisplay.textContent = `player: ${playerScore}`;
   computerScoreDisplay.textContent = `computer: ${computerScore}`;
-  result.textContent = "";
+  result.textContent = "result:";
 }
 
 function updateScore() {
