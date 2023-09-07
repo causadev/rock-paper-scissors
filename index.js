@@ -11,8 +11,9 @@ const computerChoice = document.querySelector("#computerChoice");
 const computerScoreDisplay = document.querySelector("#computerScoreDisplay");
 const playerScoreDisplay = document.querySelector("#playerScoreDisplay");
 const computerSelection = getComputerChoice();
-computerChoice.textContent = `Computer chose:`;
-userChoice.textContent = `You chose: `;
+computerChoice.textContent = `computer chose:`;
+userChoice.textContent = `you chose:`;
+result.textContent = `result:`;
 rock.addEventListener("click", () => playRound("rock"));
 paper.addEventListener("click", () => playRound("paper"));
 scissors.addEventListener("click", () => playRound("scissors"));
@@ -27,20 +28,20 @@ function getComputerChoice() {
 
 function playRound(playerSelection) {
   const computerSelection = getComputerChoice();
-  userChoice.textContent = `You chose: ${playerSelection}`;
-  computerChoice.textContent = `Computer chose: ${computerSelection}`;
+  userChoice.textContent = `you chose: ${playerSelection}`;
+  computerChoice.textContent = `computer chose: ${computerSelection}`;
   if (playerSelection === computerSelection) {
-    result.textContent = `It's a draw! ${playerSelection} can't beat ${computerSelection}`;
+    result.textContent = `result: it's a draw! ${playerSelection} can't beat ${computerSelection}`;
   } else if (
     (playerSelection === "rock" && computerSelection === "paper") ||
     (playerSelection === "paper" && computerSelection === "scissors") ||
     (playerSelection === "scissors" && computerSelection === "rock")
   ) {
     computerScore++;
-    result.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
+    result.textContent = `result: you lose! ${computerSelection} beats ${playerSelection}`;
   } else {
     playerScore++;
-    result.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
+    result.textContent = `result: you win! ${playerSelection} beats ${computerSelection}`;
   }
 
   updateScore();
@@ -51,15 +52,16 @@ function restartGame() {
   computerScore = 0;
   playerSelection = "";
   result.textContent = "";
-  computerChoice.textContent = `Computer chose:`;
-  userChoice.textContent = `You chose: `;
-  playerScoreDisplay.textContent = `Player: ${playerScore}`;
-  computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+  computerChoice.textContent = `computer chose:`;
+  userChoice.textContent = `you chose: `;
+  playerScoreDisplay.textContent = `player: ${playerScore}`;
+  computerScoreDisplay.textContent = `computer: ${computerScore}`;
+  result.textContent = "";
 }
 
 function updateScore() {
-  playerScoreDisplay.textContent = `Player: ${playerScore}`;
-  computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+  playerScoreDisplay.textContent = `player: ${playerScore}`;
+  computerScoreDisplay.textContent = `computer: ${computerScore}`;
 }
 
 updateScore();
