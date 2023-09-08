@@ -11,6 +11,7 @@ h1 {
 }
 
 button {
+  width: 10%;
   border: none;
   border-radius: 8px;
   padding: 15px 32px;
@@ -29,4 +30,17 @@ p {
 
 #result {
   font-size: 28px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-end;
+  margin-right: 100px;
+}
+
+.container > p {
+  text-align: left;
+  margin-left: 653px;
 }
