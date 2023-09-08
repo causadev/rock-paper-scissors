@@ -29,10 +29,6 @@ p {
   font-size: 25px;
 }
 
-#result {
-  font-size: 28px;
-}
-
 .container {
   display: flex;
   flex-direction: column;
