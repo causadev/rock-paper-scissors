@@ -42,9 +42,3 @@ p {
   text-align: left;
   margin-left: 34vw;
 }
-
-@media only screen and (max-width: 600px) {
-  body {
-    text-align: center;
-  }
-}
