@@ -37,8 +37,6 @@ p {
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: flex-end;
-  margin-right: 100px;
 }
 
 .container > p {
