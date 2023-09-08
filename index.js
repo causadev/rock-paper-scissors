@@ -54,14 +54,14 @@ function restartGame() {
   result.textContent = "";
   computerChoice.textContent = `computer chose:`;
   userChoice.textContent = `you chose: `;
-  playerScoreDisplay.textContent = `player: ${playerScore}`;
-  computerScoreDisplay.textContent = `computer: ${computerScore}`;
+  playerScoreDisplay.textContent = `player score: ${playerScore}`;
+  computerScoreDisplay.textContent = `computer score: ${computerScore}`;
   result.textContent = "result:";
 }
 
 function updateScore() {
-  playerScoreDisplay.textContent = `player: ${playerScore}`;
-  computerScoreDisplay.textContent = `computer: ${computerScore}`;
+  playerScoreDisplay.textContent = `player score: ${playerScore}`;
+  computerScoreDisplay.textContent = `computer score: ${computerScore}`;
 }
 
 updateScore();
