@@ -1,67 +1,46 @@
-let playerScore = 0;
-let computerScore = 0;
-let playerSelection = "";
-const rock = document.querySelector("#rockBtn");
-const paper = document.querySelector("#paperBtn");
-const scissors = document.querySelector("#scissorsBtn");
+const playerText = document.querySelector("#playerText");
+const computerText = document.querySelector("#computerText");
+const resultText = document.querySelector("#resultText");
+const buttons = document.querySelectorAll("#choiceBtn");
 const restart = document.querySelector("#restartBtn");
-const result = document.querySelector("#result");
-const userChoice = document.querySelector("#userChoice");
-const computerChoice = document.querySelector("#computerChoice");
-const computerScoreDisplay = document.querySelector("#computerScoreDisplay");
-const playerScoreDisplay = document.querySelector("#playerScoreDisplay");
-const computerSelection = getComputerChoice();
-computerChoice.textContent = `computer chose:`;
-userChoice.textContent = `you chose:`;
-result.textContent = `result:`;
-rock.addEventListener("click", () => playRound("rock"));
-paper.addEventListener("click", () => playRound("paper"));
-scissors.addEventListener("click", () => playRound("scissors"));
+let computerChoice;
+let playerChoice;
+
 restart.addEventListener("click", restartGame);
+buttons.forEach((btn) =>
+  btn.addEventListener("click", (e) => {
+    playerChoice = e.target.textContent;
+    computerChoice = getComputerChoice();
+    playerText.textContent = `Player: ${playerChoice}`;
+    computerText.textContent = `Computer: ${computerChoice}`;
+    playRound(playerChoice, computerChoice);
+  })
+);
 
 function getComputerChoice() {
-  const hands = ["rock", "paper", "scissors"];
-  const randomNumber = Math.floor(Math.random() * hands.length);
-  computerChoice.textContent = hands[randomNumber];
-  return hands[randomNumber];
+  const hands = ["Rock", "Paper", "Scissors"];
+  const randomChoice = Math.floor(Math.random() * hands.length);
+  return hands[randomChoice];
 }
 
-function playRound(playerSelection) {
-  const computerSelection = getComputerChoice();
-  userChoice.textContent = `you chose: ${playerSelection}`;
-  computerChoice.textContent = `computer chose: ${computerSelection}`;
+function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    result.textContent = `result: it's a draw! ${playerSelection} can't beat ${computerSelection}`;
-  } else if (
-    (playerSelection === "rock" && computerSelection === "paper") ||
-    (playerSelection === "paper" && computerSelection === "scissors") ||
-    (playerSelection === "scissors" && computerSelection === "rock")
-  ) {
-    computerScore++;
-    result.textContent = `result: you lose! ${computerSelection} beats ${playerSelection}`;
+    resultText.textContent = `Result: TIE!`;
+  } else if (playerSelection === "Rock" && computerSelection === "Paper") {
+    resultText.textContent = `Result: YOU LOST!`;
+  } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+    resultText.textContent = `Result: YOU LOST!`;
+  } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
+    resultText.textContent = `Result: YOU LOST!`;
   } else {
-    playerScore++;
-    result.textContent = `result: you win! ${playerSelection} beats ${computerSelection}`;
+    resultText.textContent = `Result: YOU WIN!`;
   }
-
-  updateScore();
 }
 
 function restartGame() {
-  playerScore = 0;
-  computerScore = 0;
-  playerSelection = "";
-  result.textContent = "";
-  computerChoice.textContent = `computer chose:`;
-  userChoice.textContent = `you chose: `;
-  playerScoreDisplay.textContent = `player score: ${playerScore}`;
-  computerScoreDisplay.textContent = `computer score: ${computerScore}`;
-  result.textContent = "result:";
+  playerChoice = "";
+  computerChoice = "";
+  playerText.textContent = `Player: ${playerChoice}`;
+  computerText.textContent = `Computer: ${computerChoice}`;
+  resultText.textContent = `Result:`;
 }
-
-function updateScore() {
-  playerScoreDisplay.textContent = `player score: ${playerScore}`;
-  computerScoreDisplay.textContent = `computer score: ${computerScore}`;
-}
-
-updateScore();
